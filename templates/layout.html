@@ -1,0 +1,36 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        Default Value
+        {% endblock  %}
+    </title>
+    <link rel="stylesheet" href="{% static "style.css" %}">
+    {% tailwind_css %}
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <nav class="bg-gradient-to-r from-emerald-800 via-emerald-700 to-emerald-600 shadow-lg border-b-2 border-emerald-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-2xl font-bold text-white tracking-wide">🍵 Chai Aur Django</div>
+                <ul class="flex space-x-8">
+                    <li><a href="/" class="hover:text-lime-300 transition duration-300 font-medium">Home</a></li>
+                    <li><a href="/chai/" class="hover:text-lime-300 transition duration-300 font-medium">All Chai</a></li>
+                    <li><a href="{% url 'chai_stores' %}" class="hover:text-lime-300 transition duration-300 font-medium">Find Stores</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="min-h-screen bg-gray-900">
+        {% block content %}{% endblock content %}
+    </main>
+    <footer class="bg-gray-800 text-center py-6 mt-12">
+        <p class="text-gray-400">&copy; 2026 Chai Aur Django. All rights reserved.</p>
+    </footer>
+</body>
+</html>
